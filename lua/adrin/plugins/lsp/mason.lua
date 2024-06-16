@@ -31,6 +31,7 @@ return {
                 -- "java_language_server",
                 "kotlin_language_server",
                 "markdown_oxide",
+                "bashls",
             },
         })
 
@@ -43,6 +44,8 @@ return {
                 "lua-language-server",
                 "vim-language-server",
                 "ktlint",
+                "ktfmt",
+                "beautysh",
             },
         })
     end,
