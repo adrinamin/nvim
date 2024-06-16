@@ -5,6 +5,6 @@ If you find something useful, you can use it, but there is no guarantee that thi
 
 ## Inspired by
 
-https://github.com/josean-dev/dev-environment-files/blob/main/.config/nvim/lua/josean/plugins/telescope.lua#L32
-https://github.com/nvim-lua/kickstart.nvim
-https://github.com/LazyVim/LazyVim
+- https://github.com/josean-dev/dev-environment-files/blob/main/.config/nvim/lua/josean/plugins/telescope.lua#L32
+- https://github.com/nvim-lua/kickstart.nvim
+- https://github.com/LazyVim/LazyVim
