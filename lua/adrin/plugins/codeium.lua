@@ -1,3 +1,4 @@
+-- disabled for now
 return {
     "Exafunction/codeium.vim",
     event = { "BufEnter" },
@@ -18,4 +19,5 @@ return {
     end,
     -- currently there is an issue with codeium#Accept function
     -- https://github.com/Exafunction/codeium.vim/issues/381
+    enabled = false,
 }

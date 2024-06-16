@@ -1,3 +1,4 @@
+-- when using windows, check requirements: https://github.com/nvim-treesitter/nvim-treesitter/wiki/Windows-support
 return {
     "nvim-treesitter/nvim-treesitter",
     event = { "BufReadPre", "BufNewFile" },
