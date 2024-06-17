@@ -1,3 +1,18 @@
+-- If nvim-tree gives swap errors, the easiest way to fix these are to delete the specific swap at .\AppData\Local\nvim-data\swap\ (Windows)
+
+-- hacky functionality to resize tree width dynamically
+-- based on https://github.com/nvim-tree/nvim-tree.lua/discussions/2595
+local nvim_tree_width = 35
+
+local function get_nvim_tree_width()
+  return nvim_tree_width
+end
+
+local function set_nvim_tree_width(width)
+  nvim_tree_width = width
+  vim.cmd.NvimTreeResize(width)
+end
+
 return {
     "nvim-tree/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
@@ -7,43 +22,42 @@ return {
         -- recommended settigns from nvim-tree documentation
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
-
         nvimtree.setup({
-            view = {
-                width = 35,
-                relativenumber = true,
+          view = {
+            width = get_nvim_tree_width,
+            relativenumber = true,
+          },
+          -- change folder arrow icons
+          renderer = {
+            indent_markers = {
+              enable = true,
             },
-            -- change folder arrwo icons
-            renderer = {
-                indent_markers = {
-                    enable = true,
-                }
-            },
-            --icons  = {
-            --    glyphs = {
-            --        foler = {
-            --            arrow_closed = "->" -- arrow when folder is closed
-            --            arrow_open = "-" -- arrow when folder is open
-            --        },
-            --    },
-            --},
-            -- disable window_picker for explorer to work well with window splits
-            actions = {
-                open_file = {
-                    window_picker = {
-                        enable = false,
-                    },
+            icons = {
+              glyphs = {
+                folder = {
+                  arrow_closed = "", -- arrow when folder is closed
+                  arrow_open = "", -- arrow when folder is open
                 },
+              },
             },
-            filters = {
-                custom = { ".DS_Store" },
+          },
+          -- disable window_picker for
+          -- explorer to work well with
+          -- window splits
+          actions = {
+            open_file = {
+              window_picker = {
+                enable = false,
+              },
             },
-            git = {
-                ignore = false,
-            },
-            
+          },
+          filters = {
+            custom = { ".DS_Store", "^.git$" },
+          },
+          git = {
+            ignore = false,
+          },
         })
-
 
         -- set keymaps
         local keymap = vim.keymap
@@ -53,7 +67,9 @@ return {
         keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
         keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
         keymap.set("n", "<leader>et", "<cmd>NvimTreeFocus<CR>", { desc = "Focus the file explorer" })
-        
+        keymap.set("n", "<leader>ni", function() set_nvim_tree_width(70) end, { desc = "increase width of tree", noremap = true}) -- another possible option -> silent = true
+        keymap.set("n", "<leader>nd", function() set_nvim_tree_width(35) end, { desc = "decrease width of tree", noremap = true}) 
+         
         -- Default keymap for api calls
           -- BEGIN_DEFAULT_ON_ATTACH
           --[[ vim.keymap.set('n', '<C-]>',   api.tree.change_root_to_node,        opts('CD'))
