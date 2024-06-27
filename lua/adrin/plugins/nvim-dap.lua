@@ -2,6 +2,7 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
         -- "leoluz/nvim-dap-go", -- only for debugging go programs
+        -- { "Mgenuit/nvim-dap-kotlin", config = true },
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio", -- needed for dap-ui
         "theHamsta/nvim-dap-virtual-text",
@@ -11,6 +12,29 @@ return {
 
         -- local dapgo = require("dap-go")
         -- dapgo.setup()
+
+        --[[ local dapkotlin = require("dap-kotlin")
+        dapkotlin.setup({
+            dap_command = "kotlin-debug-adapter",
+            project_root = "${workspaceFolder}",
+        }) ]]
+
+        dap.adapters.kotlin = {
+            type = "executable",
+            command = "/Users/aam/.local/share/nvim/mason/packages/kotlin-debug-adapter/adapter/bin/kotlin-debug-adapter",
+        }
+
+        dap.configurations.kotlin = {
+            {
+                type = "kotlin",
+                request = "launch",
+                name = "Launch kotlin program",
+                projectRoot = "${workspaceFolder}/", -- this is not working correctly atm
+                mainClass = "Hellokt",
+            },
+        }
+
+        -- dap.defaults.kotlin.auto_continue_if_many_stopped = false
 
         local dapui = require("dapui")
         dapui.setup()
