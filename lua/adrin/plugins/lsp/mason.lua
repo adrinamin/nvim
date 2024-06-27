@@ -29,8 +29,8 @@ return {
                 "html",
                 "cssls",
                 -- "java_language_server",
-                "kotlin_language_server",
-                "markdown_oxide",
+                -- "kotlin_language_server",
+                -- "markdown_oxide",
                 "bashls",
             },
         })
@@ -43,8 +43,8 @@ return {
                 "shellcheck",
                 "lua-language-server",
                 "vim-language-server",
-                "ktlint",
-                "ktfmt",
+                -- "ktlint",
+                -- "ktfmt",
                 "beautysh",
             },
         })
