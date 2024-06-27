@@ -20,7 +20,7 @@ return {
                 -- liquid = { "prettier" },
                 lua = { "stylua" },
                 -- python = { "isort", "black" },
-                kotlin = { "ktfmt" },
+                kotlin = { "ktlint" },
                 bash = { "beautysh" },
             },
             format_on_save = {
