@@ -29,9 +29,10 @@ return {
                 "html",
                 "cssls",
                 -- "java_language_server",
-                "kotlin_language_server",
-                "markdown_oxide",
+                -- "kotlin_language_server",
+                -- "markdown_oxide",
                 "bashls",
+                -- "lemminx",
             },
         })
 
@@ -39,13 +40,14 @@ return {
             ensure_installed = {
                 "prettier", -- prettier formatter
                 "stylua", -- lua formatter
-                "eslint_d",
+                -- "eslint_d",
                 "shellcheck",
                 "lua-language-server",
                 "vim-language-server",
-                "ktlint",
-                "ktfmt",
+                -- "ktlint",
+                -- "ktfmt",
                 "beautysh",
+                -- "xmlFormatter",
             },
         })
     end,
