@@ -32,6 +32,7 @@ return {
                 -- "kotlin_language_server",
                 -- "markdown_oxide",
                 "bashls",
+                -- "lemminx",
             },
         })
 
@@ -46,6 +47,7 @@ return {
                 -- "ktlint",
                 -- "ktfmt",
                 "beautysh",
+                -- "xmlFormatter",
             },
         })
     end,

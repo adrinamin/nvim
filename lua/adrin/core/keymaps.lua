@@ -28,6 +28,8 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 -- Reminder!
 -- <C-o> -> going back
 -- <C-i> -> going forward
+-- <C-d> -> move down half a screen
+-- <C-u> -> move up half a screen
 
 -- Move a single line up or down
 keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
