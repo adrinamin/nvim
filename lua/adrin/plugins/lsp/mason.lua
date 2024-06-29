@@ -32,6 +32,8 @@ return {
                 -- "kotlin_language_server",
                 -- "markdown_oxide",
                 "bashls",
+                "svelte",
+                "tailwindcss",
                 -- "lemminx",
             },
         })

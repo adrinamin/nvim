@@ -88,5 +88,17 @@ return {
                 })
             end,
         })
+
+        -- You always have to do the setup for an lsp.
+        -- So at least the default config is used.
+        lspconfig.svelte.setup({})
+        lspconfig.tailwindcsstailwindcss.setup({})
+
+        -- Or you can do something like this:
+        --[[ require("lspinstall").setup()
+        local servers = require("lspinstall").installed_servers()
+        for _, server in pairs(servers) do
+            require("lspconfig")[server].setup({})
+        end ]]
     end,
 }

@@ -33,7 +33,7 @@ return {
                 -- "prisma",
                 "markdown",
                 "markdown_inline",
-                -- "svelte",
+                "svelte",
                 -- "graphql",
                 "bash",
                 "lua",
