@@ -7,11 +7,16 @@ return {
         "theHamsta/nvim-dap-virtual-text",
     },
     config = function()
+        -- more infos at https://github.com/mfussenegger/nvim-dap
+        -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#go
         local dap = require("dap")
 
+        -- more infos at https://github.com/leoluz/nvim-dap-go
+        -- https://github.com/go-delve/delve/tree/master
         local dapgo = require("dap-go")
         dapgo.setup()
 
+        -- more infos at https://github.com/rcarriga/nvim-dap-ui
         local dapui = require("dapui")
         dapui.setup()
 
