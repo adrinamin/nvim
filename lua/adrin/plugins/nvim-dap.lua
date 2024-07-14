@@ -1,3 +1,4 @@
+-- https://github.com/mfussenegger/nvim-dap
 return {
     "mfussenegger/nvim-dap",
     dependencies = {
@@ -19,6 +20,8 @@ return {
             project_root = "${workspaceFolder}",
         }) ]]
 
+        -- https://github.com/Mgenuit/nvim-dap-kotlin/
+        -- more infos at: https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#kotlin
         dap.adapters.kotlin = {
             type = "executable",
             command = "/Users/aam/.local/share/nvim/mason/packages/kotlin-debug-adapter/adapter/bin/kotlin-debug-adapter",
