@@ -41,7 +41,7 @@ return {
         mason_tool_installer.setup({
             ensure_installed = {
                 "prettier", -- prettier formatter
-                "stylua", -- lua formatter
+                "stylua", -- lua formatter, needs unzip to be installed
                 -- "eslint_d",
                 "shellcheck",
                 "lua-language-server",
