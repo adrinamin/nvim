@@ -30,12 +30,7 @@ return {
 
         local lspkind = require("lspkind")
 
-        lspkind.init({
-            symbol_map = {
-                Copilot = "",
-            },
-        })
-        vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#6CC644" })
+        lspkind.init({})
 
         -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
         require("luasnip.loaders.from_vscode").lazy_load()
@@ -71,7 +66,6 @@ return {
                 { name = "luasnip" }, -- snippets
                 { name = "buffer" }, -- text within current buffer
                 { name = "path" }, -- file system paths
-                { name = "copilot" }, -- github copilot
             }),
 
             -- configure lspkind for vs-code like pictograms in completion menu
@@ -86,7 +80,6 @@ return {
             sorting = {
                 priority_weight = 2,
                 comparators = {
-                    require("copilot_cmp.comparators").prioritize,
                     -- Below is the default comparitor list and order for nvim-cmp
                     cmp.config.compare.offset,
                     -- cmp.config.compare.scopes, -- this is the commented in nvim-cmp too
