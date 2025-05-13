@@ -25,32 +25,11 @@ return {
 
         mason_lspconfig.setup({
             -- list of servers for mason to install
-            ensure_installed = {
-                "html",
-                "cssls",
-                -- "java_language_server",
-                -- "kotlin_language_server",
-                -- "markdown_oxide",
-                "bashls",
-                "svelte",
-                "tailwindcss",
-                -- "lemminx",
-            },
+            ensure_installed = {},
         })
 
         mason_tool_installer.setup({
-            ensure_installed = {
-                "prettier", -- prettier formatter
-                "stylua", -- lua formatter, needs unzip to be installed
-                -- "eslint_d",
-                "shellcheck",
-                "lua-language-server",
-                "vim-language-server",
-                -- "ktlint",
-                -- "ktfmt",
-                "beautysh",
-                -- "xmlFormatter",
-            },
+            ensure_installed = {},
         })
     end,
 }

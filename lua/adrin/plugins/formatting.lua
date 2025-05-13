@@ -1,3 +1,4 @@
+-- https://github.com/stevearc/conform.nvim
 return {
     "stevearc/conform.nvim",
     event = { "BufReadPre", "BufNewFile" },
@@ -10,17 +11,12 @@ return {
                 typescript = { "prettier" },
                 javascriptreact = { "prettier" },
                 typescriptreact = { "prettier" },
-                svelte = { "prettier" },
                 css = { "prettier" },
                 html = { "prettier" },
                 json = { "prettier" },
                 yaml = { "prettier" },
                 markdown = { "prettier" },
-                -- graphql = { "prettier" },
-                -- liquid = { "prettier" },
                 lua = { "stylua" },
-                -- python = { "isort", "black" },
-                kotlin = { "ktfmt" },
                 bash = { "beautysh" },
             },
             format_on_save = {
