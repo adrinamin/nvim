@@ -22,7 +22,7 @@ return {
 
         local dapvirtualtext = require("nvim-dap-virtual-text")
         -- you can find more infos about configuration at https://github.com/theHamsta/nvim-dap-virtual-text
-        dapvirtualtext.setup()
+        dapvirtualtext.setup({})
 
         -- keymaps
         local keymap = vim.keymap -- for conciseness
