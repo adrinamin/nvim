@@ -96,6 +96,14 @@ return {
         -- lspconfig.tailwindcsstailwindcss.setup({})
         lspconfig.lua_ls.setup({
             capabilities = capabilities,
+            -- see https://github.com/nvim-lua/kickstart.nvim/issues/543
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        disable = { "missing-fields" },
+                    },
+                },
+            },
         })
 
         lspconfig.vmls.setup({
