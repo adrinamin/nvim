@@ -15,37 +15,37 @@ return {
             highlight = {
                 enable = true,
             },
+            -- Install parsers synchronously (only applied to `ensure_installed`)
+            sync_install = false,
             -- enable indentation
             indent = { enable = true },
             -- enable autotagging (w/ nvim-ts-autotag plugin)
             autotag = {
                 enable = true,
             },
+            -- Automatically install missing parsers when entering buffer
+            -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+            auto_install = false,
             -- ensure these language parsers are installed
             ensure_installed = {
                 "json",
                 "javascript",
                 "typescript",
-                -- "tsx",
                 "yaml",
                 "html",
                 "css",
-                -- "prisma",
                 "markdown",
                 "markdown_inline",
-                -- "svelte",
-                -- "graphql",
                 "bash",
                 "lua",
                 "vim",
                 "dockerfile",
                 "gitignore",
-                -- "query",
                 "vimdoc",
-                "kotlin",
                 "xml",
-                -- "c",
             },
+            -- List of parsers to ignore installing (or "all")
+            ignore_install = {},
             incremental_selection = {
                 enable = true,
                 keymaps = {

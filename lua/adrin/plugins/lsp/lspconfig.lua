@@ -11,7 +11,7 @@ return {
         local lspconfig = require("lspconfig")
 
         -- Import mason_lpconfig plugin
-        local mason_lspconfig = require("mason-lspconfig")
+        -- local mason_lspconfig = require("mason-lspconfig")
 
         -- Import cmp-nvim-lsp plugin
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -75,18 +75,46 @@ return {
         -- Change the Diagnostic symbols in the sign column (gutter)
         -- (not in youtube nvim video)
         local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-        for type, icon in pairs(signs) do
-            local hl = "DiagnosticSign" .. type
-            vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-        end
+        -- for type, icon in pairs(signs) do
+        --     local hl = "DiagnosticSign" .. type
+        --     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+        -- end
+        vim.diagnostic.config({ signs })
 
-        mason_lspconfig.setup_handlers({
-            -- default handler for installed servers
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
+        -- mason_lspconfig.setup_handlers({
+        --     -- default handler for installed servers
+        --     function(server_name)
+        --         lspconfig[server_name].setup({
+        --             capabilities = capabilities,
+        --         })
+        --     end,
+        -- })
+
+        -- You always have to do the setup for an lsp.
+        -- So at least the default config is used.
+        -- lspconfig.svelte.setup({})
+        -- lspconfig.tailwindcsstailwindcss.setup({})
+        lspconfig.lua_ls.setup({
+            capabilities = capabilities,
+            -- see https://github.com/nvim-lua/kickstart.nvim/issues/543
+            settings = {
+                Lua = {
+                    diagnostics = {
+                        disable = { "missing-fields" },
+                    },
+                },
+            },
         })
+
+        lspconfig.vmls.setup({
+            capabilities = capabilities,
+        })
+
+        -- Or you can do something like this:
+        --[[ require("lspinstall").setup()
+        local servers = require("lspinstall").installed_servers()
+        for _, server in pairs(servers) do
+            require("lspconfig")[server].setup({})
+        end ]]
     end,
 }

@@ -1,47 +1,28 @@
 return {
     "mfussenegger/nvim-dap",
     dependencies = {
-        -- "leoluz/nvim-dap-go", -- only for debugging go programs
-        -- { "Mgenuit/nvim-dap-kotlin", config = true },
+        "leoluz/nvim-dap-go", -- only for debugging go programs
         "rcarriga/nvim-dap-ui",
         "nvim-neotest/nvim-nio", -- needed for dap-ui
         "theHamsta/nvim-dap-virtual-text",
     },
     config = function()
+        -- more infos at https://github.com/mfussenegger/nvim-dap
+        -- https://github.com/mfussenegger/nvim-dap/wiki/Debug-Adapter-installation#go
         local dap = require("dap")
 
-        -- local dapgo = require("dap-go")
-        -- dapgo.setup()
+        -- more infos at https://github.com/leoluz/nvim-dap-go
+        -- https://github.com/go-delve/delve/tree/master
+        local dapgo = require("dap-go")
+        dapgo.setup()
 
-        --[[ local dapkotlin = require("dap-kotlin")
-        dapkotlin.setup({
-            dap_command = "kotlin-debug-adapter",
-            project_root = "${workspaceFolder}",
-        }) ]]
-
-        dap.adapters.kotlin = {
-            type = "executable",
-            command = "/Users/aam/.local/share/nvim/mason/packages/kotlin-debug-adapter/adapter/bin/kotlin-debug-adapter",
-        }
-
-        dap.configurations.kotlin = {
-            {
-                type = "kotlin",
-                request = "launch",
-                name = "Launch kotlin program",
-                projectRoot = "${workspaceFolder}/", -- this is not working correctly atm
-                mainClass = "Hellokt",
-            },
-        }
-
-        -- dap.defaults.kotlin.auto_continue_if_many_stopped = false
-
+        -- more infos at https://github.com/rcarriga/nvim-dap-ui
         local dapui = require("dapui")
         dapui.setup()
 
         local dapvirtualtext = require("nvim-dap-virtual-text")
         -- you can find more infos about configuration at https://github.com/theHamsta/nvim-dap-virtual-text
-        dapvirtualtext.setup()
+        dapvirtualtext.setup({})
 
         -- keymaps
         local keymap = vim.keymap -- for conciseness
