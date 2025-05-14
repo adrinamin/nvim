@@ -9,8 +9,6 @@ return {
             formatters_by_ft = {
                 javascript = { "prettier" },
                 typescript = { "prettier" },
-                javascriptreact = { "prettier" },
-                typescriptreact = { "prettier" },
                 css = { "prettier" },
                 html = { "prettier" },
                 json = { "prettier" },
@@ -18,6 +16,7 @@ return {
                 markdown = { "prettier" },
                 lua = { "stylua" },
                 bash = { "beautysh" },
+                xml = { "xmlformatter" },
             },
             format_on_save = {
                 lsp_fallback = true,
