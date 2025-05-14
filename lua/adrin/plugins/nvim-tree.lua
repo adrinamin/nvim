@@ -5,12 +5,12 @@
 local nvim_tree_width = 35
 
 local function get_nvim_tree_width()
-  return nvim_tree_width
+    return nvim_tree_width
 end
 
 local function set_nvim_tree_width(width)
-  nvim_tree_width = width
-  vim.cmd.NvimTreeResize(width)
+    nvim_tree_width = width
+    vim.cmd.NvimTreeResize(width)
 end
 
 return {
@@ -23,56 +23,65 @@ return {
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
         nvimtree.setup({
-          view = {
-            width = get_nvim_tree_width,
-            relativenumber = true,
-          },
-          -- change folder arrow icons
-          renderer = {
-            indent_markers = {
-              enable = true,
+            view = {
+                width = get_nvim_tree_width,
+                relativenumber = true,
             },
-            icons = {
-              glyphs = {
-                folder = {
-                  arrow_closed = "", -- arrow when folder is closed
-                  arrow_open = "", -- arrow when folder is open
+            -- change folder arrow icons
+            renderer = {
+                indent_markers = {
+                    enable = true,
                 },
-              },
+                icons = {
+                    glyphs = {
+                        folder = {
+                            arrow_closed = "", -- arrow when folder is closed
+                            arrow_open = "", -- arrow when folder is open
+                        },
+                    },
+                },
             },
-          },
-          -- disable window_picker for
-          -- explorer to work well with
-          -- window splits
-          actions = {
-            open_file = {
-              window_picker = {
-                enable = false,
-              },
+            -- disable window_picker for
+            -- explorer to work well with
+            -- window splits
+            actions = {
+                open_file = {
+                    window_picker = {
+                        enable = false,
+                    },
+                },
             },
-          },
-          filters = {
-            custom = { ".DS_Store", "^.git$" },
-          },
-          git = {
-            ignore = false,
-          },
+            filters = {
+                custom = { ".DS_Store", "^.git$" },
+            },
+            git = {
+                ignore = false,
+            },
         })
 
         -- set keymaps
         local keymap = vim.keymap
 
         keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" })
-        keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" })
+        keymap.set(
+            "n",
+            "<leader>ef",
+            "<cmd>NvimTreeFindFileToggle<CR>",
+            { desc = "Toggle file explorer on current file" }
+        )
         keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" })
         keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" })
         keymap.set("n", "<leader>et", "<cmd>NvimTreeFocus<CR>", { desc = "Focus the file explorer" })
-        keymap.set("n", "<leader>ni", function() set_nvim_tree_width(70) end, { desc = "increase width of tree", noremap = true}) -- another possible option -> silent = true
-        keymap.set("n", "<leader>nd", function() set_nvim_tree_width(35) end, { desc = "decrease width of tree", noremap = true}) 
-         
+        keymap.set("n", "<leader>ni", function()
+            set_nvim_tree_width(70)
+        end, { desc = "increase width of tree", noremap = true }) -- another possible option -> silent = true
+        keymap.set("n", "<leader>nd", function()
+            set_nvim_tree_width(35)
+        end, { desc = "decrease width of tree", noremap = true })
+
         -- Default keymap for api calls
-          -- BEGIN_DEFAULT_ON_ATTACH
-          --[[ vim.keymap.set('n', '<C-]>',   api.tree.change_root_to_node,        opts('CD'))
+        -- BEGIN_DEFAULT_ON_ATTACH
+        --[[ vim.keymap.set('n', '<C-]>',   api.tree.change_root_to_node,        opts('CD'))
           vim.keymap.set('n', '<C-e>',   api.node.open.replace_tree_buffer,   opts('Open: In Place'))
           vim.keymap.set('n', '<C-k>',   api.node.show_info_popup,            opts('Info'))
           vim.keymap.set('n', '<C-r>',   api.fs.rename_sub,                   opts('Rename: Omit Filename'))
@@ -130,6 +139,6 @@ return {
           vim.keymap.set('n', 'Y',       api.fs.copy.relative_path,           opts('Copy Relative Path'))
           vim.keymap.set('n', '<2-LeftMouse>',  api.node.open.edit,           opts('Open'))
           vim.keymap.set('n', '<2-RightMouse>', api.tree.change_root_to_node, opts('CD'))]]
-          -- END_DEFAULT_ON_ATTACH
-    end
+        -- END_DEFAULT_ON_ATTACH
+    end,
 }
