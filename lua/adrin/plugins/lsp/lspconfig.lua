@@ -7,16 +7,11 @@ return {
         { "folke/neodev.nvim", opts = {} }, -- for neovim config
     },
     config = function()
-        -- import lspconfig
-        local lspconfig = require("lspconfig")
-
-        -- Import mason_lpconfig plugin
-        -- local mason_lspconfig = require("mason-lspconfig")
-
-        -- Import cmp-nvim-lsp plugin
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
         local keymap = vim.keymap -- for conciseness
+        local cmp_nvim_lsp = require("cmp_nvim_lsp")
+        local capabilities = cmp_nvim_lsp.default_capabilities()
+        local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
+        vim.diagnostic.config({ signs })
 
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -53,12 +48,6 @@ return {
                 opts.desc = "Show line diagnostics"
                 keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 
-                opts.desc = "Go to previous diagnostic"
-                keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
-
-                opts.desc = "Go to next diagnostic"
-                keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
-
                 opts.desc = "Show documentation for what is under cursor"
                 keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
 
@@ -69,52 +58,28 @@ return {
             end,
         })
 
-        -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = cmp_nvim_lsp.default_capabilities()
-
-        -- Change the Diagnostic symbols in the sign column (gutter)
-        -- (not in youtube nvim video)
-        local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
-        -- for type, icon in pairs(signs) do
-        --     local hl = "DiagnosticSign" .. type
-        --     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
-        -- end
-        vim.diagnostic.config({ signs })
-
-        -- mason_lspconfig.setup_handlers({
-        --     -- default handler for installed servers
-        --     function(server_name)
-        --         lspconfig[server_name].setup({
-        --             capabilities = capabilities,
-        --         })
-        --     end,
-        -- })
-
-        -- You always have to do the setup for an lsp.
-        -- So at least the default config is used.
-        -- lspconfig.svelte.setup({})
-        -- lspconfig.tailwindcsstailwindcss.setup({})
-        lspconfig.lua_ls.setup({
+        -- Lua Language Server and VML Language Server are preconfigured here
+        -- Configure Lua Language Server
+        vim.lsp.config("lua_ls", {
+            cmd = { "lua-language-server" },
             capabilities = capabilities,
-            -- see https://github.com/nvim-lua/kickstart.nvim/issues/543
             settings = {
                 Lua = {
                     diagnostics = {
-                        disable = { "missing-fields" },
+                        globals = { "vim" }, -- Add global variables here
                     },
                 },
             },
         })
 
-        lspconfig.vmls.setup({
+        -- Configure VML Language Server
+        vim.lsp.config("vmls", {
+            cmd = { "vmls" },
             capabilities = capabilities,
         })
 
-        -- Or you can do something like this:
-        --[[ require("lspinstall").setup()
-        local servers = require("lspinstall").installed_servers()
-        for _, server in pairs(servers) do
-            require("lspconfig")[server].setup({})
-        end ]]
+        -- After configuring, enable the LSP clients
+        vim.lsp.enable("lua_ls")
+        vim.lsp.enable("vmls")
     end,
 }
