@@ -14,6 +14,7 @@ return {
 			auto_install = false,
 			ensure_installed = {
 				"lua",
+        "help",
 			},
 			highlight = { enable = true },
 			indent = { enable = true },

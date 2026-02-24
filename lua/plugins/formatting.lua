@@ -16,6 +16,7 @@ return {
 				lua = { "stylua" },
 				bash = { "prettier" },
 				c_sharp = { "prettier" },
+				bicep = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
@@ -29,7 +30,7 @@ return {
 			conform.format({
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 1000,
+				timeout_ms = 5000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })
 	end,

@@ -1,3 +1,5 @@
 require("core.keymappings")
 require("core.settings")
 require("core.statusline")
+require("core.lsp")
+require("core.autocmds")
