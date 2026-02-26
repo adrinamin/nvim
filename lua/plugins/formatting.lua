@@ -19,17 +19,15 @@ return {
 				bicep = { "prettier" },
 			},
 			format_on_save = {
-				lsp_fallback = true,
-				async = false,
-				timeout_ms = 1000,
+				lsp_format = "fallback",
+				timeout_ms = 5000,
 			},
 		})
 
 		-- reformat file manually
 		vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 			conform.format({
-				lsp_fallback = true,
-				async = false,
+				lsp_format = "fallback",
 				timeout_ms = 5000,
 			})
 		end, { desc = "Format file or range (in visual mode)" })

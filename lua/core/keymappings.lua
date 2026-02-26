@@ -9,6 +9,7 @@ map("n", "<Leader>sf", ":w<CR>", { desc = "Save file" })
 map("n", "<Leader>q", ":q<CR>", { desc = "quit file" })
 map("n", "<Leader>qq", ":qa<CR>", { desc = "Quit all" })
 map("n", "<Leader>h", ":nohlsearch<CR>", { desc = "Clear search highlight" })
+map("n", "<leader>us", ":source<CR>", { desc = "Reload" })
 
 -- window management
 map("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
@@ -22,10 +23,10 @@ map("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 map("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
 -- Resize windows with Alt + arrows
-map("n", "<A-Up>", ":resize -2<CR>", { noremap = true, silent = true })
-map("n", "<A-Down>", ":resize +2<CR>", { noremap = true, silent = true })
-map("n", "<A-Left>", ":vertical resize +2<CR>", { noremap = true, silent = true })
-map("n", "<A-Right>", ":vertical resize -2<CR>", { noremap = true, silent = true })
+map("n", "<A-1>", ":resize -10<CR>", { noremap = true, silent = true })
+map("n", "<A-2>", ":resize +10<CR>", { noremap = true, silent = true })
+map("n", "<A-3>", ":vertical resize +5<CR>", { noremap = true, silent = true })
+map("n", "<A-4>", ":vertical resize -5<CR>", { noremap = true, silent = true })
 
 -- tabs
 map("n", "<Leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" }) -- Open new tab

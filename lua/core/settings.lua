@@ -37,3 +37,5 @@ set.splitbelow = true
 -- displays it without selecting the first item.
 vim.o.completeopt = "menu,menuone,noselect,noinsert"
 set.shortmess:append("c")
+
+vim.o.showtabline = 2
