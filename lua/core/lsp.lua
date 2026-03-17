@@ -1,4 +1,4 @@
-vim.lsp.enable({ "lua_ls", "easy_dotnet" }) -- "bicep"
+vim.lsp.enable({ "lua_ls", "bicep", "easy_dotnet", "azure_pipeline_ls" }) -- "bicep"
 
 vim.diagnostic.config({
 	virtual_lines = true,
