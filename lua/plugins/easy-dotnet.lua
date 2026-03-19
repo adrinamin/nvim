@@ -5,7 +5,7 @@ return {
 		require("easy-dotnet").setup({
 			lsp = {
 				analyzer_assemblies = {
-					"C:\\Users\\SALEHADRVADM\\source\\sonaranalyzer.csharp.10.19.0.132793\\analyzers\\SonarAnalyzer.CSharp.dll",
+					"/home/adrin/sources/sonaranalyzer/analyzers/SonarAnalyzer.CSharp.dll",
 				},
 			},
 		})

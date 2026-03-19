@@ -1,3 +1,9 @@
+-- installation: dotnet tool install -g easydotnet
+-- for linux: export PATH="$HOME/.dotnet/tools:$PATH"
+-- the tool is called dotnet-easydotnet, it is easier to create a symlink:
+-- ln -sf "$HOME/.dotnet/tools/dotnet-easydotnet" "$HOME/.local/bin/easydotnet"
+-- source ~/.zshrc
+-- command -v easydotnet && easydotnet --version
 ---@type vim.lsp.Config
 return {
 	settings = {
