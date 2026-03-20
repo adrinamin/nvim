@@ -9,6 +9,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("gD", vim.lsp.buf.declaration, "Goto Declaration")
 		map("ca", vim.lsp.buf.code_action, "Open Code action")
 		map("K", vim.lsp.buf.hover, "Show docs under the cursor")
+		map("<leader>rr", vim.lsp.buf.rename, "Rename all references under cursor")
 	end,
 })
 
