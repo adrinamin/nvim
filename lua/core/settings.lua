@@ -35,7 +35,10 @@ set.splitbelow = true
 
 -- fixes lsp completion when enabled
 -- displays it without selecting the first item.
-vim.o.completeopt = "menu,menuone,noselect,noinsert"
+-- vim.o.completeopt = "menu,menuone,noselect,noinsert,popup"
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
+
 set.shortmess:append("c")
 
 vim.o.showtabline = 2
+
