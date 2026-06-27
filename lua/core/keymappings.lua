@@ -45,35 +45,36 @@ map("n", "<leader>o", "<C-o>", { desc = "Jump back" })
 map("n", "<leader>i", "<C-i>", { desc = "Jump forward" })
 
 ----------------------
+-- Optional
 -- disable arror keys
-local opts = { noremap = true, silent = false }
-local warn = function()
-	vim.notify("Use hjkl for navigation", vim.log.levels.WARN, { timeout = 1000 })
-end
--- Normal mode
-map("n", "<Up>", warn, opts)
-map("n", "<Down>", warn, opts)
-map("n", "<Left>", warn, opts)
-map("n", "<Right>", warn, opts)
--- Insert mode: return to insert after notifying
-map("i", "<Up>", function()
-	warn()
-	return vim.api.nvim_replace_termcodes("<Esc>i", true, false, true)
-end, { expr = true, noremap = true })
-map("i", "<Down>", function()
-	warn()
-	return vim.api.nvim_replace_termcodes("<Esc>i", true, false, true)
-end, { expr = true, noremap = true })
-map("i", "<Left>", function()
-	warn()
-	return vim.api.nvim_replace_termcodes("<Esc>i", true, false, true)
-end, { expr = true, noremap = true })
-map("i", "<Right>", function()
-	warn()
-	return vim.api.nvim_replace_termcodes("<Esc>i", true, false, true)
-end, { expr = true, noremap = true })
--- Visual mode
-map("v", "<Up>", warn, opts)
-map("v", "<Down>", warn, opts)
-map("v", "<Left>", warn, opts)
-map("v", "<Right>", warn, opts)
+-- local opts = { noremap = true, silent = false }
+-- local warn = function()
+-- 	vim.notify("Use hjkl for navigation", vim.log.levels.WARN, { timeout = 1000 })
+-- end
+-- -- Normal mode
+-- map("n", "<Up>", warn, opts)
+-- map("n", "<Down>", warn, opts)
+-- map("n", "<Left>", warn, opts)
+-- map("n", "<Right>", warn, opts)
+-- -- Insert mode: return to insert after notifying
+-- map("i", "<Up>", function()
+-- 	warn()
+-- 	return vim.api.nvim_replace_termcodes("<Esc>i", true, false, true)
+-- end, { expr = true, noremap = true })
+-- map("i", "<Down>", function()
+-- 	warn()
+-- 	return vim.api.nvim_replace_termcodes("<Esc>i", true, false, true)
+-- end, { expr = true, noremap = true })
+-- map("i", "<Left>", function()
+-- 	warn()
+-- 	return vim.api.nvim_replace_termcodes("<Esc>i", true, false, true)
+-- end, { expr = true, noremap = true })
+-- map("i", "<Right>", function()
+-- 	warn()
+-- 	return vim.api.nvim_replace_termcodes("<Esc>i", true, false, true)
+-- end, { expr = true, noremap = true })
+-- -- Visual mode
+-- map("v", "<Up>", warn, opts)
+-- map("v", "<Down>", warn, opts)
+-- map("v", "<Left>", warn, opts)
+-- map("v", "<Right>", warn, opts)
