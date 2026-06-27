@@ -33,12 +33,18 @@ set.splitright = true
 set.splitbelow = true
 -- set.winborder = "rounded"
 
+-- Use buffer and omnifunc for completion sources
+vim.o.complete = ".,o"
 -- fixes lsp completion when enabled
 -- displays it without selecting the first item.
 -- vim.o.completeopt = "menu,menuone,noselect,noinsert,popup"
-vim.opt.completeopt = { "menuone", "noselect", "popup" }
+-- Set menu behavior: fuzzy matching, show menu even with one item, no auto-selection
+vim.o.completeopt = "fuzzy,menuone,noselect"
+-- Enable the new autocomplete system
+vim.o.autocomplete = true
+-- Set popup height
+vim.o.pumheight = 7
 
 set.shortmess:append("c")
 
 vim.o.showtabline = 2
-
