@@ -7,9 +7,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		map("gd", vim.lsp.buf.definition, "Goto Definition")
 		map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+		map("gr", vim.lsp.buf.references, "Goto References")
 		map("ca", vim.lsp.buf.code_action, "Open Code action")
 		map("K", vim.lsp.buf.hover, "Show docs under the cursor")
 		map("<leader>rr", vim.lsp.buf.rename, "Rename all references under cursor")
+		map("<leader>gl", vim.lsp.codelens.run, "Run Codelens")
 	end,
 })
 
