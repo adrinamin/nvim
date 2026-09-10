@@ -19,5 +19,12 @@ return {
 		vim.keymap.set("n", "<leader>dr", dap.repl.toggle, { desc = "Toggle DAP REPL" })
 		vim.keymap.set("n", "<leader>dj", dap.down, { desc = "Go down stack frame" })
 		vim.keymap.set("n", "<leader>dk", dap.up, { desc = "Go up stack frame" })
+
+		local widgets = require("dap.ui.widgets")
+		-- Keymaps for dap UI widgets
+		vim.keymap.set("n", "<leader>ds", function()
+			local widget_sidebar = widgets.sidebar(widgets.scopes)
+			widget_sidebar.open()
+		end, { desc = "Open widget sidebar" })
 	end,
 }
