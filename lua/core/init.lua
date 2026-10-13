@@ -3,6 +3,7 @@ require("core.settings")
 require("core.statusline")
 require("core.lsp")
 require("core.autocmds")
+-- require("core.folds")
 
 -- this is for testing purposes only!
 vim.api.nvim_create_user_command("MyHello", function()
