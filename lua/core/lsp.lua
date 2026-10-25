@@ -1,4 +1,5 @@
-vim.lsp.enable({ "lua_ls", "bicep", "azure_pipeline_ls", "bashls", "easy_dotnet", "dockerls" })
+-- vim.lsp.enable({ "lua_ls", "bicep", "azure_pipeline_ls", "bashls", "easy_dotnet", "dockerls" })
+vim.lsp.enable({"lua_ls", "bashls"})
 
 vim.diagnostic.config({
 	virtual_lines = false,

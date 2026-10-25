@@ -14,10 +14,8 @@ return {
 				yaml = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
-				bash = { "prettier" },
-				cs = { "csharpier" },
-				bicep = { "prettier" },
-				sh = { "prettier" },
+				bash = { "shfmt" },
+				sh = { "shfmt" },
 			},
 			format_on_save = {
 				lsp_format = "fallback",
@@ -34,4 +32,3 @@ return {
 		end, { desc = "Format file or range (in visual mode)" })
 	end,
 }
-
