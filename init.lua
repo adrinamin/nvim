@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("unokai")
+vim.cmd.colorscheme("catppuccin-nvim")
 vim.api.nvim_set_hl(0, "LspCodeLens", { fg = "#717171", italic = true })
 
 vim.cmd("filetype plugin indent on")
